@@ -75,7 +75,7 @@ def main(args):
         model.load_state_dict(torch.load(os.path.join(args.path_model,
                                                       f"seed{i + 1}",
                                                       "Best_model_finetuning.pth"),
-                                                       map_location=torch.device('cpu')))
+                                                       map_location=torch.device('cpu'), weights_only=True))
         model.eval()
 
     act = torch.nn.Softmax(dim=1)

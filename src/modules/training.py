@@ -364,7 +364,7 @@ def predict_model(
 	try:
 		# load pretrained model
 		model.load_state_dict(
-			torch.load(os.path.join(saved_path, model.name + '_best.pth'), map_location=torch.device(device))
+			torch.load(os.path.join(saved_path, model.name + '_best.pth'), map_location=torch.device(device), weights_only=True)
 		)
 		model.eval()
 		# making inference

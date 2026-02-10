@@ -79,7 +79,7 @@ def main(args):
     for i, model in enumerate(models):
         model.load_state_dict(torch.load(os.path.join(args.path_model,
                                                       f"seed{i + 1}",
-                                                      "Best_model_finetuning.pth")))
+                                                      "Best_model_finetuning.pth"), weights_only=True))
         model.eval()
 
     act = torch.nn.Softmax(dim=1)
